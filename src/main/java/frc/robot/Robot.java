@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import java.util.concurrent.atomic.DoubleAdder;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -44,7 +46,28 @@ Joystick testJoystick;
   @Override
   public void robotPeriodic() {
     boolean aButton = testJoystick.getRawButton(1);
-    SmartDashboard.putBoolean("Button Pressed", aButton);
+    SmartDashboard.putBoolean("A Pressed", aButton);
+
+    boolean apressed = testJoystick.getRawButtonPressed(1);
+    SmartDashboard.putBoolean("Pressed A", apressed);
+
+    boolean areleased = testJoystick.getRawButtonReleased(1);
+    SmartDashboard.putBoolean("A Released", areleased);
+
+    boolean bButton = testJoystick.getRawButton(2);
+    SmartDashboard.putBoolean("B Pressed", bButton);
+
+    boolean bpressed = testJoystick.getRawButtonPressed(2);
+    SmartDashboard.putBoolean("Pressed B", bpressed);
+
+    boolean breleased = testJoystick.getRawButtonReleased(2);
+    SmartDashboard.putBoolean("B Released", breleased);
+
+    double axis0 = testJoystick.getRawAxis(0);
+    SmartDashboard.putNumber("Axis 0", axis0);
+
+    Integer pov = testJoystick.getPOV();
+    SmartDashboard.putNumber("POV", pov);
   }
 
   /** This function is called once when autonomous is enabled. */
